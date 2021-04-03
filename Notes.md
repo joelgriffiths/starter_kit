@@ -85,20 +85,38 @@ Here's why:
 * Chai (assertion library)
 
 
+// Forgot what payable means
 public payable
 
 
+buyTokens({ from: investor, value: web3.utils.toWei('1','ether') })
+buyTokens() {
+   msg.sender === from  // Appears optional in tests?????
+   msg.value === value
+}
 
 
+# Logo
+ <!-- img src={logo} className="App-logo" alt="logo"-->
 
 
+# Start server
+npm rum start
 
+# Logs in chai test
+result = await ethSwap.buyTokens({ from: investor, value: web3.utils.toWei('0.1','ether') })
+console.log(result.logs)
 
+# What is this
+contract EthSwap {
+  function buyTokens() public payable {
+    let ethSwaptoken = address(this)
+}
+'this' = &EthSwap
 
-
-
-
-
+# Smart contract spends tokens for me
+token.transferFrom(msg.sender, address(this), _amount);
+msg.sender.transfer(ethAmount);
 
 
 
